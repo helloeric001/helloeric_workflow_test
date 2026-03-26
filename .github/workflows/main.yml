@@ -1,0 +1,19 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    # 关键：指定使用自托管Runner
+    runs-on: self-hosted  # 或使用自定义标签如[runs-on: production]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup environment
+      run: |
+        echo "在自托管Runner上执行任务"
+        # 这里可以执行构建、部署等操作
